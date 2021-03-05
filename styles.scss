@@ -1,0 +1,176 @@
+$pry-color: #e2e6e3;
+$gray: #3d3f3c;
+$dark-pry: #4b5648;
+$bg-item: #FDFDFD;
+
+.text-pry {
+	color: $pry-color;
+}
+
+.bg-pry {
+	background: $pry-color;
+}
+
+.txt-gray {
+	color: $gray;
+}
+
+.txt-dark-pry {
+	color: $dark-pry;
+}
+
+.bg-gray {
+	background-color: $gray;
+}
+
+.bg-dark-pry {
+	background-color: $dark-pry;
+}
+
+.bg-item {
+    background: $bg-item;
+}
+
+.btn-dark-pry {
+	background: $dark-pry;
+	color: #fff;
+	transition: 300ms ease;
+
+	&:hover {
+		background: #fff;
+        color: $dark-pry;
+	}
+}
+
+.btn-light-pry {
+    background: #fff;
+    color: $dark-pry;
+
+    &:hover {
+        background: $dark-pry;
+        color: #fff;
+    }
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+body {
+	background: #fcfcfa;
+}
+
+.fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	bottom: 100px;
+	z-index: 10;
+}
+
+.navbar {
+	&-brand {
+		letter-spacing: 8px;
+		font-size: 24px;
+	}
+
+	&-toggler {
+		&:focus,
+		&:active {
+			outline-color: $dark-pry;
+		}
+	}
+}
+
+.select {
+	width: 200px;
+}
+
+.products {
+	margin-top: 78px;
+
+	.img-container {
+		height: 200px;
+
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
+.cart {
+	width: 90%;
+	position: absolute;
+	top: calc(5vh + 78px);
+	right: 5%;
+	height: 90vh;
+	overflow: scroll;
+	background: #f2f3f0;
+	z-index: 20;
+
+	@media screen and (min-width: 768px) {
+		width: 50%;
+		top: 78px;
+		bottom: 0;
+		right: 0;
+		height: calc(100vh - 78px);
+	}
+	
+    @media screen and (min-width: 1440px) {
+		width: 40%;
+	}
+
+	.cart__items-header {
+		.left {
+			width: 25px;
+			height: 25px;
+			line-height: 25px;
+			border: 1px solid $dark-pry;
+		}
+	}
+
+	.select {
+		width: 140px;
+	}
+
+    .cart__items-list {
+        .item {
+            height: 150px;
+            position: relative;
+
+            .count span {
+                width: 30px;
+                padding: 5px;
+                text-align: center;
+            }
+
+            img {
+                max-height: 40px;
+                width: auto;
+                object-fit: cover;
+            }
+
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 10px;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .result {
+        border-top: 3px solid $dark-pry;
+        margin-top: 80px;
+
+        button {
+            letter-spacing: 2px;
+        }
+    }
+    
+}

@@ -1,0 +1,165 @@
+.text-pry {
+  color: #e2e6e3;
+}
+
+.bg-pry {
+  background: #e2e6e3;
+}
+
+.txt-gray {
+  color: #3d3f3c;
+}
+
+.txt-dark-pry {
+  color: #4b5648;
+}
+
+.bg-gray {
+  background-color: #3d3f3c;
+}
+
+.bg-dark-pry {
+  background-color: #4b5648;
+}
+
+.bg-item {
+  background: #FDFDFD;
+}
+
+.btn-dark-pry {
+  background: #4b5648;
+  color: #fff;
+  transition: 300ms ease;
+}
+
+.btn-dark-pry:hover {
+  background: #fff;
+  color: #4b5648;
+}
+
+.btn-light-pry {
+  background: #fff;
+  color: #4b5648;
+}
+
+.btn-light-pry:hover {
+  background: #4b5648;
+  color: #fff;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+body {
+  background: #fcfcfa;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  bottom: 100px;
+  z-index: 10;
+}
+
+.navbar-brand {
+  letter-spacing: 8px;
+  font-size: 24px;
+}
+
+.navbar-toggler:focus, .navbar-toggler:active {
+  outline-color: #4b5648;
+}
+
+.select {
+  width: 200px;
+}
+
+.products {
+  margin-top: 78px;
+}
+
+.products .img-container {
+  height: 200px;
+}
+
+.products .img-container img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart {
+  width: 90%;
+  position: absolute;
+  top: calc(5vh + 78px);
+  right: 5%;
+  height: 90vh;
+  overflow: scroll;
+  background: #f2f3f0;
+  z-index: 20;
+}
+
+@media screen and (min-width: 768px) {
+  .cart {
+    width: 50%;
+    top: 78px;
+    bottom: 0;
+    right: 0;
+    height: calc(100vh - 78px);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .cart {
+    width: 40%;
+  }
+}
+
+.cart .cart__items-header .left {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  border: 1px solid #4b5648;
+}
+
+.cart .select {
+  width: 140px;
+}
+
+.cart .cart__items-list .item {
+  height: 150px;
+  position: relative;
+}
+
+.cart .cart__items-list .item .count span {
+  width: 30px;
+  padding: 5px;
+  text-align: center;
+}
+
+.cart .cart__items-list .item img {
+  max-height: 40px;
+  width: auto;
+  object-fit: cover;
+}
+
+.cart .cart__items-list .item .close {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  font-size: 16px;
+}
+
+.cart .result {
+  border-top: 3px solid #4b5648;
+  margin-top: 80px;
+}
+
+.cart .result button {
+  letter-spacing: 2px;
+}
