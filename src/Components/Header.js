@@ -44,7 +44,7 @@ const Header = () => {
 								</li>
 							</div>
 							<div className="d-flex">
-								<li className="nav-item m-3 my-md-auto active">
+								<li className="nav-item m-3 my-md-auto">
 									<Link to="/" className="nav-link">
 										Account
 									</Link>
@@ -67,7 +67,7 @@ const Header = () => {
 						<p className="text-dark-pry">A 360° look at Lumin</p>
 					</div>
 					<div className="select">
-						<Select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)} options={options} />
+						<Select value={selectedOption} onChange={(e) => setSelectedOption(e)} options={options} />
 					</div>
 				</div>
 			</div>

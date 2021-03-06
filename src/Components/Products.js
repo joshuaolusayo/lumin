@@ -1,8 +1,6 @@
 import React from "react";
 
 const Products = (props) => {
-	console.log(props);
-
 	return (
 		<div className="bg-pry p-3 p-md-5 products text-dark-pry">
 			<div className="container">

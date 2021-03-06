@@ -22,6 +22,10 @@
   background-color: #4b5648;
 }
 
+.btn.bg-dark-pry:hover {
+  background-color: #3d3f3c;
+}
+
 .bg-item {
   background: #fdfdfd;
 }
