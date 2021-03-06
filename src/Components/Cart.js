@@ -9,9 +9,11 @@ const options = [
 
 const Cart = (props) => {
 	const [selectedOption, setSelectedOption] = useState("USD");
-	console.log(props);
+	console.log();
 
-	useEffect(() => {}, [selectedOption]);
+	// const addTotal = () => {};
+
+	// useEffect(() => {}, [selectedOption, props.cart]);
 
 	return (
 		<div className={`cart-overlay ${props.clicked ? "d-block shadow" : "d-none"}`}>
@@ -27,7 +29,28 @@ const Cart = (props) => {
 						<Select value={selectedOption} onChange={(e) => setSelectedOption(e)} options={options} />
 					</div>
 					<div className="cart__items-list">
-						<div className="item d-flex mb-4 shadow-sm">
+						{props.cart.map((item) => (
+							<div key={item.id} className="item d-flex mb-4 shadow-sm">
+								<div className="bg-white w-70 p-3 d-flex flex-column justify-content-between">
+									<span className="txt-gray">{item.name}</span>
+									<div className="d-flex justify-content-between align-items-center">
+										<div className="d-flex flex-no-wrap border count">
+											<span>-</span>
+											<span>{item.quantity}</span>
+											<span>+</span>
+										</div>
+										<div>${item.price}</div>
+									</div>
+								</div>
+								<div className="w-30 bg-item d-flex justify-content-center align-items-center">
+									<span className="close">
+										<i className="fa fa-times"></i>
+									</span>
+									<img src={item.img} alt={item.name} />
+								</div>
+							</div>
+						))}
+						{/* <div className="item d-flex mb-4 shadow-sm">
 							<div className="bg-white w-70 p-3 d-flex flex-column justify-content-between">
 								<span className="txt-gray">Dark Circle Defense</span>
 								<div className="d-flex justify-content-between align-items-center">
@@ -83,7 +106,7 @@ const Cart = (props) => {
 								</span>
 								<img src="/assets/jewellery.jpeg" alt="Jewellery" />
 							</div>
-						</div>
+						</div> */}
 					</div>
 
 					<div className="result">
