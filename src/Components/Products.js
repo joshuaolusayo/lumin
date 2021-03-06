@@ -8,108 +8,30 @@ const Products = (props) => {
 			<div className="container">
 				<div className="row">
 					<div className="row py-5">
-						<div className="col-md-6 col-lg-4 my-4 my-lg-5">
-							<div className="card bg-transparent border-0">
-								<div className="img-container mb-2">
-									<img src="/assets/jewellery.jpeg" className="card-img-top" alt="Jewellery" />
+						{props.items.map((item) => {
+							return (
+								<div key={item.id} className="col-md-6 col-lg-4 my-4 my-lg-5">
+									<div className="card bg-transparent border-0">
+										<div className="img-container mb-2">
+											<img src={item.img} className="card-img-top" alt="Jewellery" />
+										</div>
+										<div className="card-body text-center mb-0">
+											<h4 className="card-title txt-gray">{item.name}</h4>
+											<p className="card-text font-weight-bold">From ${item.price}</p>
+											<button
+												className="btn rounded py-2 px-5 bg-dark-pry text-light"
+												onClick={() => {
+													props.addToCart(item);
+													props.changeClicked(true);
+												}}
+											>
+												Add to Cart
+											</button>
+										</div>
+									</div>
 								</div>
-								<div className="card-body text-center mb-0">
-									<h4 className="card-title txt-gray">Age Management Collection</h4>
-									<p className="card-text font-weight-bold">From $48</p>
-									<button
-										className="btn rounded py-2 px-5 bg-dark-pry text-light"
-										onClick={() => props.changeClicked(true)}
-									>
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-						<div className="col-md-6 col-lg-4 my-4 my-lg-5">
-							<div className="card bg-transparent border-0">
-								<div className="img-container mb-2">
-									<img src="/assets/jewellery.jpeg" className="card-img-top" alt="Jewellery" />
-								</div>
-								<div className="card-body text-center mb-0">
-									<h4 className="card-title txt-gray">Age Management Collection</h4>
-									<p className="card-text font-weight-bold">From $48</p>
-									<button
-										className="btn rounded py-2 px-5 bg-dark-pry text-light"
-										onClick={() => props.changeClicked(true)}
-									>
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-						<div className="col-md-6 col-lg-4 my-4 my-lg-5">
-							<div className="card bg-transparent border-0">
-								<div className="img-container mb-2">
-									<img src="/assets/jewellery.jpeg" className="card-img-top" alt="Jewellery" />
-								</div>
-								<div className="card-body text-center mb-0">
-									<h4 className="card-title txt-gray">Age Management Collection</h4>
-									<p className="card-text font-weight-bold">From $48</p>
-									<button
-										className="btn rounded py-2 px-5 bg-dark-pry text-light"
-										onClick={() => props.changeClicked(true)}
-									>
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-						<div className="col-md-6 col-lg-4 my-4 my-lg-5">
-							<div className="card bg-transparent border-0">
-								<div className="img-container mb-2">
-									<img src="/assets/jewellery.jpeg" className="card-img-top" alt="Jewellery" />
-								</div>
-								<div className="card-body text-center mb-0">
-									<h4 className="card-title txt-gray">Age Management Collection</h4>
-									<p className="card-text font-weight-bold">From $48</p>
-									<button
-										className="btn rounded py-2 px-5 bg-dark-pry text-light"
-										onClick={() => props.changeClicked(true)}
-									>
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-						<div className="col-md-6 col-lg-4 my-4 my-lg-5">
-							<div className="card bg-transparent border-0">
-								<div className="img-container mb-2">
-									<img src="/assets/jewellery.jpeg" className="card-img-top" alt="Jewellery" />
-								</div>
-								<div className="card-body text-center mb-0">
-									<h4 className="card-title txt-gray">Age Management Collection</h4>
-									<p className="card-text font-weight-bold">From $48</p>
-									<button
-										className="btn rounded py-2 px-5 bg-dark-pry text-light"
-										onClick={() => props.changeClicked(true)}
-									>
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-						<div className="col-md-6 col-lg-4 my-4 my-lg-5">
-							<div className="card bg-transparent border-0">
-								<div className="img-container mb-2">
-									<img src="/assets/jewellery.jpeg" className="card-img-top" alt="Jewellery" />
-								</div>
-								<div className="card-body text-center mb-0">
-									<h4 className="card-title txt-gray">Age Management Collection</h4>
-									<p className="card-text font-weight-bold">From $48</p>
-									<button
-										className="btn rounded py-2 px-5 bg-dark-pry text-light"
-										onClick={() => props.changeClicked(true)}
-									>
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
+							);
+						})}
 					</div>
 				</div>
 			</div>
