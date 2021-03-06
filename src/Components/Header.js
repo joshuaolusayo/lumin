@@ -32,24 +32,24 @@ const Header = () => {
 					<div className="collapse navbar-collapse w-100" id="collapsibleNavId">
 						<ul className="navbar-nav mr-auto mt-2 mt-md-0 w-100 d-flex justify-content-between align-items-center text-center">
 							<div className="d-flex">
-								<li className="nav-item mx-3">
+								<li className="nav-item m-3 my-md-auto">
 									<Link to="/" className="nav-link">
 										Shop
 									</Link>
 								</li>
-								<li className="nav-item mx-3">
+								<li className="nav-item m-3 my-md-auto">
 									<Link to="/" className="nav-link">
 										Learn
 									</Link>
 								</li>
 							</div>
 							<div className="d-flex">
-								<li className="nav-item mx-3 active">
+								<li className="nav-item m-3 my-md-auto active">
 									<Link to="/" className="nav-link">
 										Account
 									</Link>
 								</li>
-								<li className="nav-item mx-3">
+								<li className="nav-item m-3 my-md-auto">
 									<Link to="/" className="nav-link">
 										Cart
 									</Link>

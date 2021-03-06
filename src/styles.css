@@ -23,7 +23,7 @@
 }
 
 .bg-item {
-  background: #FDFDFD;
+  background: #fdfdfd;
 }
 
 .btn-dark-pry {
@@ -63,7 +63,6 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  bottom: 100px;
   z-index: 10;
 }
 
@@ -93,73 +92,79 @@ body {
   object-fit: cover;
 }
 
-.cart {
+.cart-overlay {
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.cart-overlay .cart {
   width: 90%;
-  position: absolute;
-  top: calc(5vh + 78px);
-  right: 5%;
-  height: 90vh;
+  margin-top: 5vh;
+  margin-left: 5%;
+  height: calc(90vh);
   overflow: scroll;
   background: #f2f3f0;
-  z-index: 20;
 }
 
 @media screen and (min-width: 768px) {
-  .cart {
+  .cart-overlay .cart {
     width: 50%;
-    top: 78px;
-    bottom: 0;
-    right: 0;
-    height: calc(100vh - 78px);
+    margin-top: 0;
+    margin-left: 50%;
+    height: 100vh;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .cart {
+  .cart-overlay .cart {
     width: 40%;
   }
 }
 
-.cart .cart__items-header .left {
+.cart-overlay .cart .cart__items-header .left {
   width: 25px;
   height: 25px;
   line-height: 25px;
   border: 1px solid #4b5648;
 }
 
-.cart .select {
+.cart-overlay .cart .select {
   width: 140px;
 }
 
-.cart .cart__items-list .item {
+.cart-overlay .cart .cart__items-list .item {
   height: 150px;
   position: relative;
 }
 
-.cart .cart__items-list .item .count span {
+.cart-overlay .cart .cart__items-list .item .count span {
   width: 30px;
   padding: 5px;
   text-align: center;
 }
 
-.cart .cart__items-list .item img {
+.cart-overlay .cart .cart__items-list .item img {
   max-height: 40px;
   width: auto;
   object-fit: cover;
 }
 
-.cart .cart__items-list .item .close {
+.cart-overlay .cart .cart__items-list .item .close {
   position: absolute;
   top: 15px;
   right: 10px;
   font-size: 16px;
 }
 
-.cart .result {
+.cart-overlay .cart .result {
   border-top: 3px solid #4b5648;
   margin-top: 80px;
 }
 
-.cart .result button {
+.cart-overlay .cart .result button {
   letter-spacing: 2px;
 }

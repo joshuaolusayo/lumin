@@ -4,11 +4,11 @@ import Products from "./Products";
 import Cart from "./Cart";
 
 const App = () => {
-	const [clicked, setClicked] = useState(false);
+	const [clicked, setClicked] = useState(true);
 
-	const changeClicked = (boolean)=> {
+	const changeClicked = (boolean) => {
 		setClicked(boolean);
-	}
+	};
 
 	useEffect(() => {
 		console.log(clicked);
@@ -16,15 +16,15 @@ const App = () => {
 		if (clicked) {
 			document.documentElement.style.overflowY = "hidden";
 		} else {
-            document.documentElement.style.overflowY = "scroll";
-        }
+			document.documentElement.style.overflowY = "scroll";
+		}
 	}, [clicked]);
 
 	return (
-		<div>
+		<div id="overlay">
 			<Header />
-			<Products setClicked={changeClicked}  />
-			{clicked ? <Cart changeClicked={changeClicked} /> : ""}
+			<Products changeClicked={changeClicked} />
+			<Cart changeClicked={changeClicked} clicked={clicked} />
 		</div>
 	);
 };

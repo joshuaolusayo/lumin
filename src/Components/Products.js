@@ -2,7 +2,7 @@ import React from "react";
 
 const Products = (props) => {
 	console.log(props);
-	
+
 	return (
 		<div className="bg-pry p-3 p-md-5 products text-dark-pry">
 			<div className="container">
@@ -17,8 +17,8 @@ const Products = (props) => {
 									<h4 className="card-title txt-gray">Age Management Collection</h4>
 									<p className="card-text font-weight-bold">From $48</p>
 									<button
-										className="btn rounded py-2 px-5 btn-dark-pry text-light"
-										onClick={() => props.setClicked(true)}
+										className="btn rounded py-2 px-5 bg-dark-pry text-light"
+										onClick={() => props.changeClicked(true)}
 									>
 										Add to Cart
 									</button>
@@ -34,8 +34,8 @@ const Products = (props) => {
 									<h4 className="card-title txt-gray">Age Management Collection</h4>
 									<p className="card-text font-weight-bold">From $48</p>
 									<button
-										className="btn rounded py-2 px-5 btn-dark-pry text-light"
-										onClick={() => props.setClicked(true)}
+										className="btn rounded py-2 px-5 bg-dark-pry text-light"
+										onClick={() => props.changeClicked(true)}
 									>
 										Add to Cart
 									</button>
@@ -51,8 +51,8 @@ const Products = (props) => {
 									<h4 className="card-title txt-gray">Age Management Collection</h4>
 									<p className="card-text font-weight-bold">From $48</p>
 									<button
-										className="btn rounded py-2 px-5 btn-dark-pry text-light"
-										onClick={() => props.setClicked(true)}
+										className="btn rounded py-2 px-5 bg-dark-pry text-light"
+										onClick={() => props.changeClicked(true)}
 									>
 										Add to Cart
 									</button>
@@ -68,8 +68,8 @@ const Products = (props) => {
 									<h4 className="card-title txt-gray">Age Management Collection</h4>
 									<p className="card-text font-weight-bold">From $48</p>
 									<button
-										className="btn rounded py-2 px-5 btn-dark-pry text-light"
-										onClick={() => props.setClicked(true)}
+										className="btn rounded py-2 px-5 bg-dark-pry text-light"
+										onClick={() => props.changeClicked(true)}
 									>
 										Add to Cart
 									</button>
@@ -85,8 +85,8 @@ const Products = (props) => {
 									<h4 className="card-title txt-gray">Age Management Collection</h4>
 									<p className="card-text font-weight-bold">From $48</p>
 									<button
-										className="btn rounded py-2 px-5 btn-dark-pry text-light"
-										onClick={() => props.setClicked(true)}
+										className="btn rounded py-2 px-5 bg-dark-pry text-light"
+										onClick={() => props.changeClicked(true)}
 									>
 										Add to Cart
 									</button>
@@ -102,8 +102,8 @@ const Products = (props) => {
 									<h4 className="card-title txt-gray">Age Management Collection</h4>
 									<p className="card-text font-weight-bold">From $48</p>
 									<button
-										className="btn rounded py-2 px-5 btn-dark-pry text-light"
-										onClick={() => props.setClicked(true)}
+										className="btn rounded py-2 px-5 bg-dark-pry text-light"
+										onClick={() => props.changeClicked(true)}
 									>
 										Add to Cart
 									</button>
