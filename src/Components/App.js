@@ -4,7 +4,7 @@ import Products from "./Products";
 import Cart from "./Cart";
 
 const App = () => {
-	const [clicked, setClicked] = useState(true);
+	const [clicked, setClicked] = useState(false);
 
 	const changeClicked = (boolean) => {
 		setClicked(boolean);

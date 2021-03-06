@@ -92,6 +92,10 @@ body {
   object-fit: cover;
 }
 
+.products h4 {
+  font-size: 20px;
+}
+
 .cart-overlay {
   width: 100%;
   position: fixed;
@@ -122,6 +126,7 @@ body {
 @media screen and (min-width: 1440px) {
   .cart-overlay .cart {
     width: 40%;
+    margin-left: 60%;
   }
 }
 
