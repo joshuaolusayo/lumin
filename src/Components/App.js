@@ -3,8 +3,6 @@ import Header from "./Header";
 import Products from "./Products";
 import Cart from "./Cart";
 import { items } from "./items";
-import { useQuery } from '@apollo/client';
-
 
 const App = () => {
 	const [clicked, setClicked] = useState(false);
@@ -68,8 +66,6 @@ const App = () => {
 		}
 		return total;
 	};
-
-	
 
 	
 
