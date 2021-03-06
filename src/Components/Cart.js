@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 
 const options = [
-	{ value: 1, label: "USD" },
-	{ value: 380, label: "NAIRA" },
-	{ value: 3.29, label: "INR" },
+	{ value: "USD", label: "USD" },
+	{ value: "NGN", label: "NGN" },
+	{ value: "INR", label: "INR" },
 ];
 
 const Cart = (props) => {
@@ -23,13 +23,21 @@ const Cart = (props) => {
 						<span className="txt-gray text-uppercase w-100 text-center">Your cart</span>
 					</div>
 					<div className="select my-3">
-						<Select value={selectedOption} onChange={(e) => setSelectedOption(e)} options={options} />
+						<Select
+							value={selectedOption}
+							onChange={(e) => {
+								console.log(e);
+								setSelectedOption(e);
+								// props.GetProducts(e.value);
+							}}
+							options={options}
+						/>
 					</div>
 					<div className="cart__items-list">
 						{props.cart.map((item) => (
 							<div key={item.id} className="item d-flex mb-4 shadow-sm">
 								<div className="bg-white w-70 p-3 d-flex flex-column justify-content-between">
-									<span className="txt-gray">{item.name}</span>
+									<span className="txt-gray">{item.title}</span>
 									<div className="d-flex justify-content-between align-items-center">
 										<div className="d-flex flex-no-wrap border count">
 											<span onClick={() => props.reduceItemQty(item)}>-</span>
@@ -43,7 +51,7 @@ const Cart = (props) => {
 									<span className="close" onClick={() => props.removeFromCart(item)}>
 										<i className="fa fa-times"></i>
 									</span>
-									<img src={item.img} alt={item.name} />
+									<img src={item.img} alt={item.title} />
 								</div>
 							</div>
 						))}

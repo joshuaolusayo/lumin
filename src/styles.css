@@ -87,13 +87,11 @@ body {
   margin-top: 78px;
 }
 
-.products .img-container {
-  height: 200px;
-}
-
 .products .img-container img {
   height: 100%;
   object-fit: cover;
+  width: 80px;
+  height: 110px;
 }
 
 .products h4 {

@@ -10,11 +10,11 @@ const Products = (props) => {
 							return (
 								<div key={item.id} className="col-md-6 col-lg-4 my-4 my-lg-5">
 									<div className="card bg-transparent border-0">
-										<div className="img-container mb-2">
-											<img src={item.img} className="card-img-top" alt="Jewellery" />
+										<div className="img-container mb-2 d-flex justify-content-center">
+											<img src={item.image_url} className="card-img-top" alt="Jewellery" loading="lazy" />
 										</div>
 										<div className="card-body text-center mb-0">
-											<h4 className="card-title txt-gray">{item.name}</h4>
+											<h4 className="card-title txt-gray">{item.title}</h4>
 											<p className="card-text font-weight-bold">From ${item.price}</p>
 											<button
 												className="btn rounded py-2 px-5 bg-dark-pry text-light"

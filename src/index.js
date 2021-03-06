@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import App from "./Components/App";
-import { ApolloClient, InMemoryCache, ApolloProvider, gql, useQuery  } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider  } from '@apollo/client';
 
 import "./styles.css";
 

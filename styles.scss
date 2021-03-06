@@ -99,11 +99,11 @@ body {
 	margin-top: 78px;
 
 	.img-container {
-		height: 200px;
-
 		img {
 			height: 100%;
 			object-fit: cover;
+			width: 80px;
+			height: 110px;
 		}
 	}
 

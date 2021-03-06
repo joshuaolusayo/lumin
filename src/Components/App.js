@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Products from "./Products";
 import Cart from "./Cart";
-import { items } from "./items";
-import { useQuery, gql } from '@apollo/client';
-
+// import { items } from "./items";
+import { useQuery, gql } from "@apollo/client";
 
 const App = () => {
 	const [clicked, setClicked] = useState(false);
 	const [performComputation, setPerformComputation] = useState(false);
 	const [cart, setCart] = useState([]);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	let items = [];
 
 	const GET_PRODUCTS = gql`
-	query Products($currency: Currency){
-		products {
-			price(currency: $currency)
-			id
-			title
+		query Products($currency: Currency) {
+			products {
+				price(currency: $currency)
+				id
+				title
+				image_url
+			}
 		}
-    }`;
+	`;
 
 	const addToCart = (item) =>
 		setCart((currentCart) => {
@@ -34,7 +37,8 @@ const App = () => {
 				];
 			}
 
-			item["quantity"] = 1;
+			item = { ...item };
+			item.quantity = 1;
 			return [...currentCart, item];
 		});
 
@@ -80,23 +84,23 @@ const App = () => {
 
 	function GetProducts(currency) {
 		const { loading, error, data } = useQuery(GET_PRODUCTS, {
-			variables: { currency }
+			variables: { currency },
 		});
-		
+
 		if (loading) return null;
 		if (error) return `Error! ${error}`;
-	
+
 		console.log(data);
-		
+		items = data.products;
+
 		return data;
-	};
+	}
 
-	GetProducts('NGN');
-	
+	GetProducts("NGN");
 
-	
+	useEffect(() => [], [items]);
 
-	return (
+	return items.length > 0 ? (
 		<div id="overlay">
 			<Header />
 			<Products changeClicked={changeClicked} items={items} addToCart={addToCart} />
@@ -109,8 +113,11 @@ const App = () => {
 				reduceItemQty={reduceItemQty}
 				performComputation={performComputation}
 				calculateTotal={calculateTotal}
+				GetProducts={GetProducts}
 			/>
 		</div>
+	) : (
+		<div>Loading</div>
 	);
 };
 
