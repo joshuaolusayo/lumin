@@ -11,26 +11,6 @@ const client = new ApolloClient({
 	cache: new InMemoryCache()
 });
 
-const GET_PRODUCTS = gql`
-	query Products($currency){
-		products {
-			price(currency: $currency)
-			id
-			title
-		}
-}`;
-
-function GetProducts({ currency }) {
-	const { loading, error, data } = useQuery(GET_PRODUCTS, {
-		variables: { currency }
-	});
-	
-	if (loading) return null;
-	if (error) return `Error! ${error}`;
-	
-	return data;
-}
-
 ReactDOM.render(
 	<ApolloProvider client={client}>
 		<React.StrictMode>

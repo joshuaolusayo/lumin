@@ -3,13 +3,22 @@ import Header from "./Header";
 import Products from "./Products";
 import Cart from "./Cart";
 import { items } from "./items";
-import { useQuery } from '@apollo/client';
+import { useQuery, gql } from '@apollo/client';
 
 
 const App = () => {
 	const [clicked, setClicked] = useState(false);
 	const [performComputation, setPerformComputation] = useState(false);
 	const [cart, setCart] = useState([]);
+
+	const GET_PRODUCTS = gql`
+	query Products($currency: Currency){
+		products {
+			price(currency: $currency)
+			id
+			title
+		}
+    }`;
 
 	const addToCart = (item) =>
 		setCart((currentCart) => {
@@ -69,6 +78,20 @@ const App = () => {
 		return total;
 	};
 
+	function GetProducts(currency) {
+		const { loading, error, data } = useQuery(GET_PRODUCTS, {
+			variables: { currency }
+		});
+		
+		if (loading) return null;
+		if (error) return `Error! ${error}`;
+	
+		console.log(data);
+		
+		return data;
+	};
+
+	GetProducts('NGN');
 	
 
 	
