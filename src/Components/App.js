@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Products from "./Products";
 import Cart from "./Cart";
@@ -6,25 +6,38 @@ import { items } from "./items";
 
 const App = () => {
 	const [clicked, setClicked] = useState(false);
-
+	const [performComputation, setPerformComputation] = useState(false);
 	const [cart, setCart] = useState([]);
 
 	const addToCart = (item) =>
 		setCart((currentCart) => {
-			console.log(currentCart);
-			// check if the item exist. If it does, increase the quantity
-			console.log(currentCart.findIndex(product => item.id === product.id));
-			if (currentCart.length > 0 && currentCart.findIndex(product => item.id === product.id) !== -1) {
+			if (currentCart.length > 0 && currentCart.findIndex((product) => item.id === product.id) !== -1) {
 				const indexOfItem = currentCart.findIndex((product) => item.id === product.id);
-				// console.log(currentCart[indexOfItem].quantity);
-				currentCart[indexOfItem].quantity++;
-				// console.log(currentCart[indexOfItem].quantity);
-				return [...currentCart];
+				return [
+					...currentCart.slice(0, indexOfItem),
+					{
+						...currentCart[indexOfItem],
+						quantity: currentCart[indexOfItem].quantity + 1,
+					},
+					...currentCart.slice(indexOfItem + 1),
+				];
 			}
 
-			item["quantity"] = 1
+			item["quantity"] = 1;
 			return [...currentCart, item];
 		});
+
+	const increaseItemQty = (item) => {
+		item.quantity++;
+		setPerformComputation(!performComputation);
+		return item;
+	};
+
+	const reduceItemQty = (item) => {
+		item.quantity--;
+		setPerformComputation(!performComputation);
+		return item;
+	};
 
 	const removeFromCart = (item) => {
 		setCart((currentCart) => {
@@ -40,23 +53,33 @@ const App = () => {
 		setClicked(boolean);
 	};
 
-	console.log(cart);
+	const calculateTotal = (store) => {
+		let prices = [],
+			total = 0;
 
-	useEffect(() => {
-		console.log(clicked);
-
-		if (clicked) {
-			document.documentElement.style.overflowY = "hidden";
+		if (store.length > 0) {
+			store.map((item) => prices.push(item.quantity * item.price));
+			total = prices.reduce((total, price) => total + price, 0);
 		} else {
-			document.documentElement.style.overflowY = "scroll";
+			total = 0;
 		}
-	}, [clicked]);
+		return total;
+	};
 
 	return (
 		<div id="overlay">
 			<Header />
 			<Products changeClicked={changeClicked} items={items} addToCart={addToCart} />
-			<Cart changeClicked={changeClicked} clicked={clicked} cart={cart} />
+			<Cart
+				changeClicked={changeClicked}
+				clicked={clicked}
+				cart={cart}
+				removeFromCart={removeFromCart}
+				increaseItemQty={increaseItemQty}
+				reduceItemQty={reduceItemQty}
+				performComputation={performComputation}
+				calculateTotal={calculateTotal}
+			/>
 		</div>
 	);
 };

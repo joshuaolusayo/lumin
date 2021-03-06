@@ -9,11 +9,8 @@ const options = [
 
 const Cart = (props) => {
 	const [selectedOption, setSelectedOption] = useState("USD");
-	console.log();
 
-	// const addTotal = () => {};
-
-	// useEffect(() => {}, [selectedOption, props.cart]);
+	useEffect(() => {}, [selectedOption, props.performComputation]);
 
 	return (
 		<div className={`cart-overlay ${props.clicked ? "d-block shadow" : "d-none"}`}>
@@ -35,84 +32,27 @@ const Cart = (props) => {
 									<span className="txt-gray">{item.name}</span>
 									<div className="d-flex justify-content-between align-items-center">
 										<div className="d-flex flex-no-wrap border count">
-											<span>-</span>
+											<span onClick={() => props.reduceItemQty(item)}>-</span>
 											<span>{item.quantity}</span>
-											<span>+</span>
+											<span onClick={() => props.increaseItemQty(item)}>+</span>
 										</div>
 										<div>${item.price}</div>
 									</div>
 								</div>
 								<div className="w-30 bg-item d-flex justify-content-center align-items-center">
-									<span className="close">
+									<span className="close" onClick={() => props.removeFromCart(item)}>
 										<i className="fa fa-times"></i>
 									</span>
 									<img src={item.img} alt={item.name} />
 								</div>
 							</div>
 						))}
-						{/* <div className="item d-flex mb-4 shadow-sm">
-							<div className="bg-white w-70 p-3 d-flex flex-column justify-content-between">
-								<span className="txt-gray">Dark Circle Defense</span>
-								<div className="d-flex justify-content-between align-items-center">
-									<div className="d-flex flex-no-wrap border count">
-										<span>-</span>
-										<span>1</span>
-										<span>+</span>
-									</div>
-									<div>$29.00</div>
-								</div>
-							</div>
-							<div className="w-30 bg-item d-flex justify-content-center align-items-center">
-								<span className="close">
-									<i className="fa fa-times"></i>
-								</span>
-								<img src="/assets/jewellery.jpeg" alt="Jewellery" />
-							</div>
-						</div>
-						<div className="item d-flex mb-4 shadow-sm">
-							<div className="bg-white w-70 p-3 d-flex flex-column justify-content-between">
-								<span className="txt-gray">Dark Circle Defense</span>
-								<div className="d-flex justify-content-between align-items-center">
-									<div className="d-flex flex-no-wrap border count">
-										<span>-</span>
-										<span>1</span>
-										<span>+</span>
-									</div>
-									<div>$29.00</div>
-								</div>
-							</div>
-							<div className="w-30 bg-item d-flex justify-content-center align-items-center">
-								<span className="close">
-									<i className="fa fa-times"></i>
-								</span>
-								<img src="/assets/jewellery.jpeg" alt="Jewellery" />
-							</div>
-						</div>
-						<div className="item d-flex mb-4 shadow-sm">
-							<div className="bg-white w-70 p-3 d-flex flex-column justify-content-between">
-								<span className="txt-gray">Dark Circle Defense</span>
-								<div className="d-flex justify-content-between align-items-center">
-									<div className="d-flex flex-no-wrap border count">
-										<span>-</span>
-										<span>1</span>
-										<span>+</span>
-									</div>
-									<div>$29.00</div>
-								</div>
-							</div>
-							<div className="w-30 bg-item d-flex justify-content-center align-items-center">
-								<span className="close">
-									<i className="fa fa-times"></i>
-								</span>
-								<img src="/assets/jewellery.jpeg" alt="Jewellery" />
-							</div>
-						</div> */}
 					</div>
 
 					<div className="result">
 						<div className="d-flex justify-content-between py-3">
 							<span>Subtotal</span>
-							<span>$61.00</span>
+							<span>${props.calculateTotal(props.cart)}</span>
 						</div>
 						<button className="w-100 px-4 py-3 btn-light-pry mb-4 text-uppercase">Make this a subscription (save 20%)</button>
 						<button className="w-100 px-4 py-3 btn-dark-pry text-uppercase">Proceed to checkout</button>

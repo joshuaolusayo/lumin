@@ -27,6 +27,12 @@ $bg-item: #fdfdfd;
 	background-color: $dark-pry;
 }
 
+.btn.bg-dark-pry {
+	&:hover {
+		background-color: $gray;
+	}
+}
+
 .bg-item {
 	background: $bg-item;
 }
