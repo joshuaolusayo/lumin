@@ -35,6 +35,7 @@ const App = () => {
 
 	const reduceItemQty = (item) => {
 		item.quantity--;
+		if (item.quantity <= 0) removeFromCart(item);
 		setPerformComputation(!performComputation);
 		return item;
 	};
@@ -65,6 +66,8 @@ const App = () => {
 		}
 		return total;
 	};
+
+	
 
 	return (
 		<div id="overlay">
