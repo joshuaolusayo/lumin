@@ -9,19 +9,25 @@ const App = () => {
 	const [clicked, setClicked] = useState(false);
 	const [performComputation, setPerformComputation] = useState(false);
 	const [cart, setCart] = useState([]);
+	const [currency, setCurrency] = useState("USD");
+
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	let items = [];
 
 	const GET_PRODUCTS = gql`
 		query Products($currency: Currency) {
 			products {
-				price(currency: $currency)
 				id
 				title
 				image_url
+				price(currency: $currency)
 			}
 		}
 	`;
+
+	const { data } = useQuery(GET_PRODUCTS, {
+		variables: { currency },
+	});
 
 	const addToCart = (item) =>
 		setCart((currentCart) => {
@@ -82,24 +88,32 @@ const App = () => {
 		return total;
 	};
 
-	function GetProducts(currency) {
-		const { loading, error, data } = useQuery(GET_PRODUCTS, {
-			variables: { currency },
-		});
+	// function GetProducts(currency) {
+	// 	const { loading, error, data } = useQuery(GET_PRODUCTS, {
+	// 		variables: { currency },
+	// 	});
 
-		if (loading) return null;
-		if (error) return `Error! ${error}`;
+	// 	if (loading) return null;
+	// 	if (error) return `Error! ${error}`;
 
-		console.log(data);
+	// 	console.log(data);
+	// 	items = data.products;
+
+	// 	return data;
+	// }
+
+	// GetProducts("NGN");
+
+	useEffect(() => {}, [items]);
+
+	// if (loading) return null;
+	// if (error) return `Error! ${error}`;
+
+	if (data && data.products) {
 		items = data.products;
-
-		return data;
 	}
 
-	GetProducts("NGN");
-
-	useEffect(() => [], [items]);
-
+	console.log(items);
 	return items.length > 0 ? (
 		<div id="overlay">
 			<Header />
@@ -113,11 +127,14 @@ const App = () => {
 				reduceItemQty={reduceItemQty}
 				performComputation={performComputation}
 				calculateTotal={calculateTotal}
-				GetProducts={GetProducts}
+				setCurrency={setCurrency}
+				// updateCurrency={updateCurrency}
 			/>
 		</div>
 	) : (
-		<div>Loading</div>
+		<div className="loading-component bg-pry text-dark-pry d-flex justify-content-center align-items-center text-center">
+			Loading...
+		</div>
 	);
 };
 

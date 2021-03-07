@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-
-const options = [
-	{ value: "USD", label: "USD" },
-	{ value: "NGN", label: "NGN" },
-	{ value: "INR", label: "INR" },
-];
+import { currency } from "./currency";
 
 const Cart = (props) => {
 	const [selectedOption, setSelectedOption] = useState("USD");
 
-	useEffect(() => {}, [selectedOption, props.performComputation]);
+	useEffect(() => {}, [props.performComputation]);
 
 	return (
 		<div className={`cart-overlay ${props.clicked ? "d-block shadow" : "d-none"}`}>
@@ -24,13 +19,15 @@ const Cart = (props) => {
 					</div>
 					<div className="select my-3">
 						<Select
+							defaultValue={{ label: "USD", value: "USD" }}
 							value={selectedOption}
 							onChange={(e) => {
 								console.log(e);
 								setSelectedOption(e);
-								// props.GetProducts(e.value);
+								// props.setCurrency(e.value);
+								// props.updateCurrency(e.value);
 							}}
-							options={options}
+							options={currency}
 						/>
 					</div>
 					<div className="cart__items-list">
@@ -51,7 +48,7 @@ const Cart = (props) => {
 									<span className="close" onClick={() => props.removeFromCart(item)}>
 										<i className="fa fa-times"></i>
 									</span>
-									<img src={item.img} alt={item.title} />
+									<img src={item.image_url} alt={item.title} loading="lazy" />
 								</div>
 							</div>
 						))}
